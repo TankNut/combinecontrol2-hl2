@@ -1,0 +1,7 @@
+GM.Config.Database = {
+	Host = "localhost",
+	Username = "root",
+	Password = "",
+	Database = "cc2-hl2",
+	Port = 3306
+}
