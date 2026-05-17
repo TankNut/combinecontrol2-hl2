@@ -1,5 +1,5 @@
 -- General config
-GM.Config.InternalName = "halo" -- Used for figuring out what folder in data/cc2 we want to put our stuff into
+GM.Config.InternalName = "hl2" -- Used for figuring out what folder in data/cc2 we want to put our stuff into
 GM.Config.ServerName = "CombineControl 2"
 
 GM.Config.CommunityLinks = {}
