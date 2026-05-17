@@ -1,4 +1,4 @@
-FLAG.Base = "soldier"
+FLAG.Base = "combine_soldier"
 
 FLAG.Name = "Overwatch Elite"
 
