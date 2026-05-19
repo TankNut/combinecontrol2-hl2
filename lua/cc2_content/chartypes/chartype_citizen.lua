@@ -119,7 +119,11 @@ if CLIENT then
 		end
 
 		return {_base = {
-			Model = options.Model or self.Models[1]
+			Model = options.Model or self.Models[1],
+			Materials = {
+				["models/humans/male/group01/players_sheet"] = "models/humans/male/group01/citizen_sheet",
+				["models/humans/female/group01/players_sheet"] = "models/humans/female/group01/citizen_sheet"
+			}
 		}}
 	end
 else

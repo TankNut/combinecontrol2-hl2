@@ -10,7 +10,8 @@ function FLAG:GetModelData(ply)
 		Model = ply:CharacterModel(),
 		Skin = ply:CharacterSkin(),
 		Materials = {
-			["models/humans/male/group01/players_sheet"] = "models/humans/male/group01/citizen_sheet"
+			["models/humans/male/group01/players_sheet"] = "models/humans/male/group01/citizen_sheet",
+			["models/humans/female/group01/players_sheet"] = "models/humans/female/group01/citizen_sheet"
 		}
 	}}
 end
