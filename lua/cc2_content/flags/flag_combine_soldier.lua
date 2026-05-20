@@ -8,6 +8,10 @@ FLAG.Loadout = {"weapon_cc_hands"}
 
 FLAG.Clothing = CLOTHING_PARTIAL
 
+FLAG.CombineAccess = {
+	"doors", "npcs"
+}
+
 FLAG.SoldierModel = Model("models/player/combine_soldier.mdl")
 FLAG.SoldierMaterial = "models/combine_soldier/combinesoldiersheet"
 

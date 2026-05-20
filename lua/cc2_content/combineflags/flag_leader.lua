@@ -3,6 +3,13 @@ FLAG.Team = TEAM_COMBINE
 
 FLAG.Armor = 100
 
+FLAG.BaseAccess = {
+	"npcs"
+}
+FLAG.Access = {
+	"doors"
+}
+
 function FLAG:VisibleRPName(ply)
 	return "CCA.C17.RL-" .. ply:CID()
 end
