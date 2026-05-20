@@ -13,7 +13,7 @@ Doors.AddAccessType("combine", {
 })
 
 function PLAYER:IsCombine()
-	return tobool(self:GetActiveCombineFlag() or self:RunCharFlag("IsCombine"))
+	return tobool(self:ActiveCombineFlag() or self:RunCharFlag("IsCombine"))
 end
 
 function GenerateCID()
