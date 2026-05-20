@@ -8,7 +8,7 @@ CharacterVar.Add("CombineFlag", {DataType = VARCHAR(64)})
 CharacterVar.Add("Flagged", {Default = false, DataType = BOOL()})
 
 function Register(name, flag)
-	List[name] = inherit.Register("combineflag", name, flag, flag.Base)
+	List[name] = inherit.Register("combineflag", name, flag, flag.Base or "base")
 end
 
 function Get(name)
@@ -49,6 +49,16 @@ function PLAYER:ActiveCombineFlag()
 	return Get(PLAYER.CombineFlag(self))
 end
 
+function PLAYER:RunCharFlag(name, ...)
+	local flag = self:ActiveCombineFlag()
+
+	if flag and flag[name] then
+		return flag:Run(self, name, ...)
+	else
+		return self:GetCharFlag():Run(self, name, ...)
+	end
+end
+
 function GM:OnCombineFlagChanged(ply, old, new, loaded)
 	if loaded or not ply:Flagged() then
 		return
@@ -80,8 +90,6 @@ function GM:OnFlaggedChanged(ply, old, new, loaded)
 		for _, item in pairs(ply:GetEquipment()) do
 			item:CheckEquipmentSlot()
 		end
-
-		ply:Spawn()
 	end
 end
 
