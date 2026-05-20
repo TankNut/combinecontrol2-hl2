@@ -4,42 +4,16 @@ local PLAYER = FindMetaTable("Player")
 
 CharacterVar.Add("CID", {Default = "0000", DataType = VARCHAR(4)})
 
-Doors.AddAccessType("combine_basic", {
+Doors.AddAccessType("combine", {
 	Name = "Combine",
 	Color = Color(33, 106, 196),
 	CanAccess = function(ent, ply)
-		return ply:HasCombineAccess("doors")
+		return ply:IsCombine()
 	end
 })
 
-function PLAYER:GetCombineAccess()
-	local access = {}
-
-	local function add(flag, key)
-		local data = flag:Run(self, key)
-
-		if data then
-			table.Merge(access, table.Lookup(data))
-		end
-	end
-
-	add(self:GetCharFlag(), "CombineAccess")
-
-	local flag = self:GetCombineFlag()
-
-	if flag then
-		add(flag, "BaseAccess")
-
-		if self:Flagged() then
-			add(flag, "Access")
-		end
-	end
-
-	return access
-end
-
-function PLAYER:HasCombineAccess(name)
-	return tobool(self:GetCombineAccess()[name])
+function PLAYER:IsCombine()
+	return tobool(self:GetActiveCombineFlag() or self:RunCharFlag("IsCombine"))
 end
 
 function GenerateCID()
@@ -65,7 +39,7 @@ function GM:GetPlayerClassification(ply)
 		return CLASSIFY_LONEWOLF
 	end
 
-	if ply:HasCombineAccess("npcs") then
+	if ply:IsCombine() then
 		return CLASSIFY_COMBINE
 	end
 
